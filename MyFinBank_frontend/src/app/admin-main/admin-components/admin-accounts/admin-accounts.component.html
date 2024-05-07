@@ -1,0 +1,96 @@
+<app-admin-navbar></app-admin-navbar>
+
+<div class="addacc">
+    <button class="create-account" (click)="openCreateAccountForm()">Create Account</button>
+</div>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">S.No</th>
+            <th scope="col">Account No</th>
+            <th scope="col">Username</th>
+            <th scope="col">Email</th>
+            <th scope="col">Account Type</th>
+            <th scope="col">Balance</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let account of accounts; let i = index">
+            <td scope="row">{{ i + 1 }}</td>
+            <td>{{ account._id }}</td>
+            <td>{{ account.username }}</td>
+            <td>{{ account.email }}</td>
+            <td>{{ account.account_type }}</td>
+            <td>Rs {{ account.balance }} /-</td>
+            <td>
+                <button class="edit-button" (click)="toggleEditForm(account)">Edit</button>
+            </td>
+            <td>
+                <button (click)="deleteAccount(account._id)" class="delete-button">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- Popup edit account form -->
+<div class="edit-account-popup" *ngIf="isEditFormOpen">
+    <div class="edit-account-popup-content">
+        <span class="close-btn" (click)="closeEditForm()">X</span>
+        <h2>Edit Account</h2>
+        <form (ngSubmit)="saveEditedAccount()">
+            <div class="form-group">
+                <label for="edit-username">Username:</label>
+                <input type="text" id="edit-username" [(ngModel)]="editedAccount.username" name="edit-username" [disabled]="true" required>
+            </div>
+            <div class="form-group">
+                <label for="edit-email">Email:</label>
+                <input type="email" id="edit-email" [(ngModel)]="editedAccount.email" name="edit-email" [disabled]="true" required>
+            </div>
+            <div class="form-group">
+                <label for="edit-account-type">Account Type:</label>
+                <select id="edit-account-type" [(ngModel)]="editedAccount.account_type" name="edit-account-type" required>
+                    <option value="savings">Savings</option>
+                    <option value="current">Current</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="edit-balance">Balance:</label>
+                <input type="text" id="edit-balance" [(ngModel)]="editedAccount.balance" name="edit-balance" required>
+            </div>
+            <button type="submit">Save</button>
+        </form>
+    </div>
+</div>
+
+
+<!-- Popup create account form -->
+<div class="create-account-popup" *ngIf="isCreateFormOpen">
+    <div class="create-account-popup-content">
+        <span class="close-btn" (click)="closeCreateAccountForm()">X</span>
+        <h2>Create Account</h2>
+        <form (ngSubmit)="createAccount()">
+            <div class="form-group">
+                <label for="new-email">Email:</label>
+                <input type="email" id="new-email" [(ngModel)]="newAccount.email" name="new-email" required>
+            </div>
+            <div class="form-group">
+                <label for="new-account-type">Account Type:</label>
+                <select id="new-account-type" [(ngModel)]="newAccount.account_type" name="new-account-type" required>
+                    <option value="savings" [selected]="true">Savings</option>
+                    <option value="current">Current</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="new-balance">Balance:</label>
+                <input type="text" id="new-balance" [(ngModel)]="newAccount.balance" name="new-balance" required>
+            </div>
+            <button type="submit">Create</button>
+        </form>
+    </div>
+</div>
+
+
+<app-common-footer></app-common-footer>

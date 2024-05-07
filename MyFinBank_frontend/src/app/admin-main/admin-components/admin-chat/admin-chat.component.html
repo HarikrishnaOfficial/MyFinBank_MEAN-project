@@ -1,0 +1,55 @@
+<app-admin-navbar></app-admin-navbar>
+
+<!-- Chat List -->
+<div class="table-container">
+    <div class="table table-hover">
+        <table>
+            <thead>
+                <tr>
+                    <th>S.No</th>
+                    <th>User ID</th>
+                    <th class="specc">Message</th>
+                    <th class="specc">Reply</th>
+                    <th>Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let chat of chats; let i = index">
+                    <td scope="row">{{ i + 1 }}</td>
+                    <td>{{ chat.user_id }}</td>
+                    <td>{{ chat.message }}</td>
+                    <td>{{ chat.reply }}</td>
+                    <td>{{ chat.timestamp | date: 'dd/MM/yyyy' }}</td>
+                    <td><button class="edit-button" (click)="openEditForm(chat)">Reply</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<!-- Edit Chat Form -->
+<div class="edit-chat-form popup-form" *ngIf="isEditFormOpen">
+    <form (ngSubmit)="saveChat()">
+        <span class="close-btn" (click)="closeEditForm()">X</span>
+        <h2>Edit Chat</h2>
+        <div class="form-group">
+            <label for="user_id">User ID:</label>
+            <input type="text" id="user_id" [(ngModel)]="editedChat.user_id" [disabled]="true" name="user_id" required>
+        </div>
+        <div class="form-group">
+            <label for="message">Message:</label>
+            <textarea id="message" [(ngModel)]="editedChat.message" name="message" [disabled]="true" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="reply">Reply:</label>
+            <textarea id="reply" [(ngModel)]="editedChat.reply" name="reply"></textarea>
+        </div>
+        <button type="submit">Save</button>
+    </form>
+</div>
+
+
+
+<app-common-footer></app-common-footer>

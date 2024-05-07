@@ -1,0 +1,149 @@
+/* CSS for table formatting */
+.table-container {
+    width: 95%;
+    margin: 20px auto 90px auto;
+}
+
+.table {
+    width: auto;
+    max-width: 100%;
+    border-collapse: collapse;
+}
+
+td,
+th {
+    min-width: fit-content;
+    max-width: 350px;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.table th {
+    background-color: #5db1ff;
+    font-weight: bold;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #e0f0ff;
+    cursor: pointer;
+}
+
+.edit-button {
+    padding: 5px 10px;
+    font-size: 12px;
+    background-color: #003f82;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.edit-button:hover {
+    background-color: #007bff;
+}
+
+.delete-button {
+    padding: 5px 10px;
+    font-size: 12px;
+    background-color: #c60000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+    background-color: #e10000;
+}
+.post-query{
+    padding: 5px 10px;
+    font-size: 12px;
+    background-color: #0052a9;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Popup form container */
+.popup-form {
+    width: 500px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    z-index: 9999;
+}
+
+/* Close button */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #0056b3;
+    color: white;
+    padding: 5px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.btn-cont{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    margin: 20px;
+    margin-right: 40px;
+}
+
+/* Form title */
+.popup-form h2 {
+    margin-top: 0;
+}
+
+/* Form fields */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Form labels */
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Form input fields */
+.form-group input,
+.form-group textarea {
+    width: 95%;
+    padding: 7px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Form submit button */
+.popup-form button {
+    background-color: #0056b3;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Form submit button on hover */
+.popup-form button:hover {
+    background-color: #1579e3;
+}
+

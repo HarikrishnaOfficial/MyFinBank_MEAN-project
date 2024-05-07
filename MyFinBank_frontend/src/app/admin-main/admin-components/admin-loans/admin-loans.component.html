@@ -1,0 +1,72 @@
+<app-admin-navbar></app-admin-navbar>
+
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">S.No</th>
+            <th scope="col">Loan Id</th>
+            <th scope="col">Account Id</th>
+            <th scope="col">Balance</th>
+            <th scope="col">Loan Amount</th>
+            <th scope="col">ROI</th>
+            <th scope="col">Months</th>
+            <th scope="col">EMI</th>
+            <th scope="col">Status</th>
+            <th scope="col">Action</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let loan of loans; let i = index">
+            <td scope="row">{{ i + 1 }}</td>
+            <td>{{ loan._id }}</td>
+            <td>{{ loan.account_id }}</td>
+            <td>{{ loan.balance }}</td>
+            <td>{{ loan.loan_amount }}</td>
+            <td>{{ loan.interest_rate }}</td>
+            <td>{{ loan.months }}</td>
+            <td>{{ loan.emi }}</td>
+            <td>{{loan.status}}</td>
+            <td>
+                <button class="edit-button" (click)="openEditForm(loan)" [disabled]="loan.status === 'active'">Approve/Reject</button>
+            </td>
+            <td>
+                <button class="delete-button" (click)="deleteLoan(loan._id)" [disabled]="loan.status !== 'rejected'">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+<!-- Popup form component -->
+<div class="popup-form" *ngIf="isEditFormOpen">
+    <form class="form-container" (ngSubmit)="saveLoan()">
+        <span class="close-btn" (click)="closePopup()">X</span>
+        <h2>Edit Loan</h2>
+        <div class="form-group">
+            <label for="loanAmount">Loan Amount:</label>
+            <input type="number" id="loanAmount" [disabled]="false" [(ngModel)]="editedLoan.loan_amount" name="loanAmount" required>
+        </div>
+        <div class="form-group">
+            <label for="interestRate">Interest Rate:</label>
+            <input type="number" id="interestRate" [disabled]="false" [(ngModel)]="editedLoan.interest_rate" name="interestRate" required>
+        </div>
+        <div class="form-group">
+            <label for="months">Months:</label>
+            <input type="number" id="months" [disabled]="false" [(ngModel)]="editedLoan.months" name="months" required>
+        </div>
+        <div class="form-group">
+            <label for="status">Status:</label>
+            <select id="status" [(ngModel)]="editedLoan.status" name="status" required>
+                <option value="pending">Pending</option>
+                <option value="approved">Approved</option>
+                <option value="rejected">Rejected</option>
+            </select>
+        </div>
+        <button type="submit">Save</button>
+    </form>
+</div>
+
+<app-common-footer></app-common-footer>

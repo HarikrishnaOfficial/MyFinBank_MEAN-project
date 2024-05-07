@@ -1,0 +1,31 @@
+<app-user-navbar></app-user-navbar>
+
+<div style="margin-top: 20px;margin-bottom: 20px;" class="form-container">
+    <form (submit)="EMICalculator()" class="emi-form">
+        <!-- Form fields for emi calculation -->
+        <div class="form-group">
+            <label for="loanAmount">Loan Amount:</label>
+            <input type="number" [(ngModel)]="loanAmount" name="loanAmount" id="loanAmount"
+                placeholder="Enter Loan Amount" required>
+        </div>
+        <div class="form-group">
+            <label for="interestRate">Interest Rate:</label>
+            <input type="number" [disabled]="true" [(ngModel)]="interestRate" name="interestRate"
+                id="interestRate" placeholder="Enter Interest Rate" required>
+        </div>
+        <div class="form-group">
+            <label for="months">Months:</label>
+            <input type="number" [(ngModel)]="months" name="months" id="months"
+                placeholder="Enter Number of Months" required>
+        </div>
+        <!-- Add more fields as needed -->
+        <div style="display: flex; margin: 30px;">
+            <button style="margin: 10px;" type="submit">Calculate EMI</button>
+            <button style="background-color: rgb(188, 0, 0); margin: 10px;" (click)="clear()">Clear</button>
+        </div>
+
+        <h3>EMI/Month: {{dummyEMI}}</h3>
+    </form>
+</div>
+
+<app-common-footer></app-common-footer>

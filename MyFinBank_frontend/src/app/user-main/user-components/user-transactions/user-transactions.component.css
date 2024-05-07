@@ -1,0 +1,35 @@
+/* CSS for table formatting */
+.table {
+    width: 95%;
+    /* Set table width */
+    border-collapse: collapse;
+    /* Collapse border spacing */
+    margin: 20px auto;
+    /* Center the table horizontally */
+    margin-bottom: 90px;
+}
+
+.table th,
+.table td {
+    padding: 8px;
+    /* Add padding to table cells */
+    border: none;
+    /* Remove borders from table cells */
+    border-bottom: 1px solid #ddd;
+    /* Add bottom border to separate rows */
+    text-align: center;
+    /* Align text to the left */
+}
+
+.table th {
+    background-color: #5db1ff;
+    /* Background color for table header */
+    font-weight: bold;
+    /* Bold font for table header */
+}
+
+.table-hover tbody tr:hover {
+    background-color: #e0f0ff;
+    /* Hover background color */
+    cursor: pointer;
+}

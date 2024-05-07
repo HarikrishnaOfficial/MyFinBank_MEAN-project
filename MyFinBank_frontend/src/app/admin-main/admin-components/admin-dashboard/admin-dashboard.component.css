@@ -1,0 +1,77 @@
+.services-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-bottom: 90px;
+}
+
+.service {
+  width: 28%;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: solid 1px #0056b3;
+}
+
+.service img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.service h3 {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.service p {
+  font-size: 14px;
+}
+
+.service-image{
+    height: 190px;
+}
+
+h2 {
+  color: #0056b3;
+  font-weight: bold;
+  margin-left: 20px;
+}
+
+.user-content{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.edit-button {
+  padding: 5px 10px;
+  font-size: 14px;
+  background-color: #0056b3;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 30px;
+  transition: background-color 0.3s ease;
+}
+
+.edit-button:hover {
+  background-color: #0c5099;
+}
+
+/* Responsive Styles */
+@media only screen and (max-width: 768px) {
+  .service {
+    width: 45%;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .service {
+    width: 100%;
+  }
+}

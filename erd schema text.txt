@@ -1,0 +1,63 @@
+MyFinBank database schema tables:
+
+1. User Table:
+- user_id (Primary Key): Unique identifier for each user.
+- username: Username for login.
+- password: Password for login.
+- email: Email address of the user.
+- role: Role of the user (customer or admin).
+- active: Flag to indicate if the user account is active or deactivated.
+
+2. Account Table:
+//- account_id (Primary Key): Unique identifier for each account.
+- user_id (Foreign Key): Identifier linking to the user table.
+- account_type: Type of account (savings, current, etc.).
+- balance: Current balance in the account.
+
+3. Transaction Table:
+//- transaction_id (Primary Key): Unique identifier for each transaction.
+- account_id (Foreign Key): Identifier linking to the account table.
+- transaction_type: Type of transaction (deposit, withdraw, fund transfer, loan, etc.).
+- amount: Amount involved in the transaction.
+- transaction_date: Date and time of the transaction.
+- status: Status of the transaction (approved, pending, denied, etc.).
+
+4. Loan Table:
+//- loan_id (Primary Key): Unique identifier for each loan.
+- account_id (Foreign Key): Identifier linking to the account table.
+- loan_amount: Amount of the loan.
+- interest_rate: Rate of interest for the loan.
+- months: Number of months for the loan.
+- emi: Calculated EMI for the loan.
+- status: Status of the loan (approved, pending, denied, etc.).
+
+5. EMI Table:
+//- emi_id (Primary Key): Unique identifier for each EMI.
+- loan_id (Foreign Key): Identifier linking to the loan table.
+- emi_amount: Amount of the equated monthly installment.
+- due_date: Due date for the EMI payment.
+- status: Status of the EMI (paid, pending, overdue, etc.).
+
+6. Fixed Deposit Table:
+//- deposit_id (Primary Key): Unique identifier for each fixed deposit.
+- account_id (Foreign Key): Identifier linking to the account table.
+- deposit_amount: Amount of the fixed deposit.
+- interest_rate: Interest rate for the fixed deposit.
+- start_date: Start date of the fixed deposit.
+- maturity_date: Maturity date of the fixed deposit.
+- status: Status of the fixed deposit (active, matured, closed, etc.).
+
+7. Recurring Deposits Table:
+//- recurring_deposit_id (Primary Key): Unique identifier for each recurring deposit.
+- account_id (Foreign Key): Identifier linking to the account table.
+- deposit_amount: Amount of the recurring deposit.
+- interest_rate: Interest rate for the recurring deposit.
+- start_date: Start date of the recurring deposit.
+- end_date: End date of the recurring deposit.
+- status: Status of the recurring deposit (active, matured, closed, etc.).
+
+8. Chat Table:
+//- chat_id (Primary Key): Unique identifier for each chat.
+- user_id (Foreign Key): Identifier linking to the user table.
+- message: Content of the chat message.
+- timestamp: Date and time of the chat.

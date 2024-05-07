@@ -1,0 +1,73 @@
+/* Style for navigation menu */
+.nav-wrapper {
+  background-color: #0056b3; /* Background color */
+  padding: 10px 20px; /* Padding */
+  padding-bottom: 15px;
+}
+
+.nav-wrapper ul#nav-mobile {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-wrapper ul#nav-mobile li {
+  display: inline;
+  margin-right: 20px;
+}
+
+.nav-wrapper ul#nav-mobile li a {
+  color: #fff; /* Text color */
+  text-decoration: none;
+  font-weight: bold; /* Bold font */
+  transition: color 0.3s; /* Smooth color transition */
+}
+
+.nav-wrapper ul#nav-mobile li a:hover {
+  color: #ffe478; /* Text color on hover */
+}
+
+/* Style for mobile navigation */
+#mobile-nav {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#mobile-nav li {
+  margin-bottom: 10px;
+}
+.logo{
+  width: 75px;
+  background-color: white;
+  padding: 2px;
+  margin-bottom: -10px;
+}
+
+#mobile-nav li a {
+  display: block;
+  padding: 10px;
+  color: #333; /* Text color */
+  text-decoration: none;
+  border: 1px solid #ccc; /* Border style */
+  border-radius: 5px; /* Border radius */
+  transition: background-color 0.3s; /* Smooth background color transition */
+}
+
+#mobile-nav li a:hover {
+  background-color: #f4f4f4; /* Background color on hover */
+}
+
+/* Styles for various screen sizes */
+@media only screen and (max-width: 575.98px) {
+  .nav-wrapper ul#nav-mobile li {
+    display: block;
+    margin-bottom: 10px;
+  }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767.98px) {
+  .nav-wrapper ul#nav-mobile li {
+    margin-right: 15px; /* Reduced margin */
+  }
+}

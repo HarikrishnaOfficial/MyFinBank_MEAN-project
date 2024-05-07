@@ -1,0 +1,78 @@
+<app-admin-navbar></app-admin-navbar>
+
+<table class="table table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Transaction ID</th>
+      <th scope="col">Account ID</th>
+      <th scope="col">Transaction Type</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Receiver A/C</th>
+      <th scope="col">Transaction Date</th>
+      <th scope="col">Status</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let transaction of transactions">
+      <td>{{ transaction._id }}</td>
+      <td>{{ transaction.account_id }}</td>
+      <td>{{ transaction.transaction_type }}</td>
+      <td>{{ transaction.amount }}</td>
+      <td>{{ transaction.receiver_acc }}</td>
+      <td>{{ transaction.transaction_date | date:'dd/MM/yyyy' }}</td>
+      <td>{{ transaction.status }}</td>
+      <td>
+        <button class="edit-button" (click)="openEditPopup(transaction)">Edit</button>
+        <button class="delete-button" (click)="deleteTransaction(transaction._id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- edit popup -->
+<div class="popup-form" *ngIf="selectedTransaction">
+  <form class="form-container" (ngSubmit)="saveTransaction()">
+      <span class="close-btn" (click)="closeEditPopup()">X</span>
+      <h2>Edit Transaction</h2>
+      <div class="form-group">
+          <div>
+              <label for="transactionId">Transaction ID:</label>
+              <input type="text" id="transactionId" [(ngModel)]="selectedTransaction._id" name="transactionId" disabled>
+          </div>
+          <div>
+              <label for="accountId">Account ID:</label>
+              <input type="text" id="accountId" [(ngModel)]="selectedTransaction.account_id" name="accountId" disabled>
+          </div>
+      </div>
+      <div class="form-group">
+          <div>
+              <label for="transactionType">Transaction Type:</label>
+              <input type="text" id="transactionType" [(ngModel)]="selectedTransaction.transaction_type" name="transactionType" required>
+          </div>
+          <div>
+              <label for="amount">Amount:</label>
+              <input type="number" id="amount" [(ngModel)]="selectedTransaction.amount" name="amount" required>
+          </div>
+      </div>
+      <div class="form-group">
+          <div>
+              <label for="receiverAcc">Receiver A/C:</label>
+              <input type="text" id="receiverAcc" [(ngModel)]="selectedTransaction.receiver_acc" name="receiverAcc" required>
+          </div>
+          <div>
+              <label for="transactionDate">Transaction Date:</label>
+              <input type="text" id="transactionDate" [(ngModel)]="selectedTransaction.transaction_date" name="transactionDate" disabled>
+          </div>
+      </div>
+      <div class="form-status">
+          <label for="status">Status:</label>
+          <input class="input-status" type="text" id="status" [(ngModel)]="selectedTransaction.status" name="status" disabled>
+      </div>
+      <button type="submit">Save</button>
+  </form>
+</div>
+
+
+<app-common-footer></app-common-footer>

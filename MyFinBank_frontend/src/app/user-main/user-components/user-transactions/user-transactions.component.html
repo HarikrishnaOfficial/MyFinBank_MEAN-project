@@ -1,0 +1,27 @@
+<app-user-navbar></app-user-navbar>
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Transaction ID</th>
+            <th scope="col">Account ID</th>
+            <th scope="col">Transaction Type</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Receiver A/C</th>
+            <th scope="col">Transaction Date</th>
+            <th scope="col">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let transaction of transactions">
+            <td>{{ transaction._id }}</td>
+            <td>{{ transaction.account_id }}</td>
+            <td>{{ transaction.transaction_type }}</td>
+            <td>{{ transaction.amount }}</td>
+            <td>{{ transaction.receiver_acc }}</td>
+            <td>{{ transaction.transaction_date | date:'dd/MM/yyyy' }}</td>
+            <td>{{ transaction.status }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<app-common-footer></app-common-footer>

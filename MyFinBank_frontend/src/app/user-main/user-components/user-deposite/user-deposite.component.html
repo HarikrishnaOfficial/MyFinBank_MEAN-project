@@ -1,0 +1,94 @@
+<app-user-navbar></app-user-navbar>
+
+<!-- Fixed Deposits Table -->
+<div class="deposits-container">
+    <div class="deposit-section">
+        <h2>Fixed Deposits</h2>
+        <table class="deposit-table">
+            <thead>
+                <tr>
+                    <th>Account ID</th>
+                    <th>Deposit Amount</th>
+                    <th>Interest Rate</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody style="text-align: center;">
+                <tr *ngFor="let deposit of fixedDeposits">
+                    <td>{{ deposit.account_id }}</td>
+                    <td>{{ deposit.deposit_amount }}</td>
+                    <td>{{ deposit.interest_rate }}</td>
+                    <td>{{ deposit.status }}</td>
+                    <td>
+                        <button (click)="witdrawFD(deposit)" class="delete">Withdraw</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="deposit-section">
+        <h2>Recurring Deposits</h2>
+        <table class="deposit-table">
+            <thead>
+                <tr>
+                    <th>Account ID</th>
+                    <th>Deposited Amount</th>
+                    <th>Interest Rate</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody style="text-align: center;">
+                <tr *ngFor="let deposit of recurringDeposits">
+                    <td>{{ deposit.account_id }}</td>
+                    <td>{{ deposit.deposit_amount }}</td>
+                    <td>{{ deposit.interest_rate }}</td>
+                    <td>{{ deposit.status }}</td>
+                    <td>
+                        <button (click)="toggleUpdateRDForm(deposit)" class="edit">Pay Term</button>
+                        <button (click)="witdrawRD(deposit)" class="delete">Withdraw</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div *ngIf="errorMessage">
+    <p>{{ errorMessage }}</p>
+</div>
+
+
+
+<!-- Update Recurring Deposit Form -->
+<div *ngIf="isRDUpdateFormOpen" class="overlay">
+    <div class="update-deposit-form">
+        <span class="close-button" (click)="closeUpdateRDForm()">×</span>
+        <h3>Add Term Recurring Deposit</h3>
+        <!-- Form to update a deposit -->
+        <form (submit)="updateRD()">
+            <label for="update_rd_account_id">Account ID:</label>
+            <input type="text" id="update_rd_account_id" [disabled]="true" [(ngModel)]="selectedRD.account_id" name="account_id" required>
+
+            <label for="update_rd_deposit_amount">Deposit Amount:</label>
+            <input type="number" id="update_rd_deposit_amount" [disabled]="true" [(ngModel)]="selectedRD.deposit_amount" name="deposit_amount" required>
+
+            <label for="update_rd_interest_rate">Interest Rate:</label>
+            <input type="number" id="update_rd_interest_rate" [disabled]="true" [(ngModel)]="selectedRD.interest_rate" name="interest_rate" required>
+
+            <label for="update_rd_status">Status:</label>
+            <input type="text" id="update_rd_status" [disabled]="true" [(ngModel)]="selectedRD.status" name="status" required>
+
+            <label for="update_rd_status">Amount to Add:</label>
+            <input type="text" id="update_rd_status" [(ngModel)]="amountTopay" name="amounttopay" required>
+
+            <!-- Button to submit the form -->
+            <button type="submit">Update Recurring Deposit</button>
+        </form>
+    </div>
+</div>
+
+
+<app-common-footer></app-common-footer>

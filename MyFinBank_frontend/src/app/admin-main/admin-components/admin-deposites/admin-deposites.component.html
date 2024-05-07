@@ -1,0 +1,162 @@
+<app-admin-navbar></app-admin-navbar>
+
+<div>
+    <div style="display: flex;justify-content: space-around; flex-wrap: wrap;">
+        <div>
+            <h2>Create Fixed Deposit</h2>
+            <!-- Form to create a new fixed deposit -->
+            <form (submit)="createFixedDeposit()">
+                <label for="account_id">Account ID:</label>
+                <input type="text" id="account_id" [(ngModel)]="newFixedDeposit.account_id" name="account_id" required>
+
+                <label for="deposit_amount">Deposit Amount:</label>
+                <input type="number" id="deposit_amount" [(ngModel)]="newFixedDeposit.deposit_amount"
+                    name="deposit_amount" required>
+
+                <label for="interest_rate">Interest Rate:</label>
+                <input type="number" id="interest_rate" [(ngModel)]="newFixedDeposit.interest_rate" name="interest_rate"
+                    required>
+
+                <label for="status">Status:</label>
+                <input type="text" id="status" [(ngModel)]="newFixedDeposit.status" name="status" required>
+
+                <!-- Button to submit the form -->
+                <button type="submit">Create Fixed Deposit</button>
+            </form>
+        </div>
+
+        <div>
+            <form (submit)="createRecurringDeposit()">
+                <h2>Create Reccuring Deposit</h2>
+                <label for="account_id">Account ID:</label>
+                <input type="text" id="account_id" [(ngModel)]="newRecurringDeposit.account_id" name="account_id"
+                    required>
+
+                <label for="deposit_amount">Deposit Amount:</label>
+                <input type="number" id="deposit_amount" [(ngModel)]="newRecurringDeposit.deposit_amount"
+                    name="deposit_amount" required>
+
+                <label for="interest_rate">Interest Rate:</label>
+                <input type="number" id="interest_rate" [(ngModel)]="newRecurringDeposit.interest_rate"
+                    name="interest_rate" required>
+
+                <label for="status">Status:</label>
+                <input type="text" id="status" [(ngModel)]="newRecurringDeposit.status" name="status" required>
+
+                <!-- Button to submit the form -->
+                <button type="submit">Create Reccuring Deposit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Display list of fixed deposits -->
+    <div class="deposits-container">
+        <div class="deposit-section">
+            <h2>Fixed Deposits</h2>
+            <table class="deposit-table">
+                <thead>
+                    <tr>
+                        <th>Account ID</th>
+                        <th>Deposit Amount</th>
+                        <th>Interest Rate</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody style="text-align: center;">
+                    <tr *ngFor="let deposit of fixedDeposits">
+                        <td>{{ deposit.account_id }}</td>
+                        <td>{{ deposit.deposit_amount }}</td>
+                        <td>{{ deposit.interest_rate }}</td>
+                        <td>{{ deposit.status }}</td>
+                        <td>
+                            <button class="update" (click)="toggleUpdateFDForm(deposit)">Edit</button>
+                            <button class="delete" (click)="deleteFixedDeposit(deposit._id)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    
+        <div class="deposit-section">
+            <h2>Recurring Deposits</h2>
+            <table class="deposit-table">
+                <thead>
+                    <tr>
+                        <th>Account ID</th>
+                        <th>Deposit Amount</th>
+                        <th>Interest Rate</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody style="text-align: center;">
+                    <tr *ngFor="let deposit of recurringDeposits">
+                        <td>{{ deposit.account_id }}</td>
+                        <td>{{ deposit.deposit_amount }}</td>
+                        <td>{{ deposit.interest_rate }}</td>
+                        <td>{{ deposit.status }}</td>
+                        <td>
+                            <button (click)="toggleUpdateRDForm(deposit)">Edit</button>
+                            <button class="delete" (click)="deleteRecurringDeposit(deposit._id)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+</div>
+
+
+<!-- Update Recurring Deposit Form -->
+<div *ngIf="isRDUpdateFormOpen" class="overlay">
+    <div class="update-deposit-form">
+        <span class="close-button" (click)="closeUpdateRDForm()">×</span>
+        <h1>Update Recurring Deposit</h1>
+        <!-- Form to update a deposit -->
+        <form (submit)="updateRD()" style="padding-right: 20px;">
+            <label for="update_rd_account_id">Account ID:</label>
+            <input type="text" id="update_rd_account_id" [disabled]="true" [(ngModel)]="selectedRD.account_id" name="account_id" required>
+
+            <label for="update_rd_deposit_amount">Deposit Amount:</label>
+            <input type="number" id="update_rd_deposit_amount" [(ngModel)]="selectedRD.deposit_amount" name="deposit_amount" required>
+
+            <label for="update_rd_interest_rate">Interest Rate:</label>
+            <input type="number" id="update_rd_interest_rate" [(ngModel)]="selectedRD.interest_rate" name="interest_rate" required>
+
+            <label for="update_rd_status">Status:</label>
+            <input type="text" id="update_rd_status" [(ngModel)]="selectedRD.status" name="status" required>
+
+            <!-- Button to submit the form -->
+            <button type="submit">Update Recurring Deposit</button>
+        </form>
+    </div>
+</div>
+
+<!-- Update Fixed Deposit Form -->
+<div *ngIf="isFDUpdateFormOpen" class="overlay">
+    <div class="update-deposit-form">
+        <span class="close-button" (click)="closeUpdateFDForm()">×</span>
+        <h1>Update Fixed Deposit</h1>
+        <!-- Form to update a deposit -->
+        <form (submit)="updateFD()" style="padding-right: 20px;">
+            <label for="update_fd_account_id">Account ID:</label>
+            <input type="text" id="update_fd_account_id" [disabled]="true" [(ngModel)]="selectedFD.account_id" name="account_id" required>
+
+            <label for="update_fd_deposit_amount">Deposit Amount:</label>
+            <input type="number" id="update_fd_deposit_amount" [(ngModel)]="selectedFD.deposit_amount" name="deposit_amount" required>
+
+            <label for="update_fd_interest_rate">Interest Rate:</label>
+            <input type="number" id="update_fd_interest_rate" [(ngModel)]="selectedFD.interest_rate" name="interest_rate" required>
+
+            <label for="update_fd_status">Status:</label>
+            <input type="text" id="update_fd_status" [(ngModel)]="selectedFD.status" name="status" required>
+
+            <!-- Button to submit the form -->
+            <button type="submit">Update Fixed Deposit</button>
+        </form>
+    </div>
+</div>
+
+<app-common-footer></app-common-footer>

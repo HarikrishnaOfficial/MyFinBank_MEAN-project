@@ -1,0 +1,72 @@
+<app-user-navbar></app-user-navbar>
+
+<div class="container">
+
+    <div *ngIf="errorMessage" class="error-message">
+        <p>{{ errorMessage }}</p>
+    </div>
+
+
+
+    <div *ngIf="!errorMessage && loans.length > 0" class="loans-list">
+        <div>
+            <h2 class="section-title">Your Loan Details </h2>
+            <div class="card-container">
+                <div *ngFor="let loan of loans" class="loan-card">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Loan ID: {{ loan._id }}</h3>
+                            <br>
+                            <p class="account-id">Account ID: {{ loan.account_id }}</p>
+                        </div>
+                        <div class="card-body">
+                            <p style="color: red;font-size:smaller;">Note: MyFinBank Follows Reduced EMI Interest Rule
+                            </p>
+                            <p><strong>Loan Amount:</strong> {{ loan.loan_amount }}</p>
+                            <p><strong>Interest Rate:</strong> {{ loan.interest_rate }}%</p>
+                            <p><strong>EMI:</strong> {{ loan.emi }}</p>
+                            <p><strong>Months:</strong> {{ loan.months }}</p>
+                            <p><strong>Status:</strong> {{ loan.status }}</p>
+                            <button *ngIf="loan.status == 'approved'" class="activate-btn"
+                                (click)="activateLoan(loan._id)">Activate Loan</button>
+                            <button *ngIf="loan.status == 'active'" class="activate-btn" (click)="payEMI(loan._id)">Pay
+                                EMI Term</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="showLoanForm" class="loan-creation-form">
+        <!-- Loan creation form -->
+        <div>
+            <h1 class="heading">Apply for a Loan</h1>
+        </div>
+        <div>
+            <form (submit)="onCreateLoan()">
+                <!-- Form fields for creating a loan -->
+                <div>
+                    <label for="loanAmount">Loan Amount:</label>
+                    <input type="number" [(ngModel)]="loanAmount" name="loanAmount" id="loanAmount"
+                        placeholder="Enter Loan Amount" required>
+                </div>
+                <div>
+                    <label for="interestRate">Interest Rate:</label>
+                    <input type="number" [disabled]="true" [(ngModel)]="interestRate" name="interestRate"
+                        id="interestRate" placeholder="Enter Interest Rate" required>
+                </div>
+                <div>
+                    <label for="months">Months:</label>
+                    <input type="number" [(ngModel)]="months" name="months" id="months"
+                        placeholder="Enter Number of Months" required>
+                </div>
+                <!-- Add more fields as needed -->
+
+                <button type="submit">Create Loan</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<app-common-footer></app-common-footer>

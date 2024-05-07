@@ -1,0 +1,19 @@
+footer {
+    background-color: #0056b3;
+    padding: 20px 0;
+    color: #333;
+    font-size: 14px;
+    margin: 0px;
+    color: white;
+}
+
+.footer-bottom {
+    text-align: center;
+}
+
+.logo {
+    background-color: white;
+    padding: 2px;
+    width: 70px;
+    margin-left: 30px;
+}

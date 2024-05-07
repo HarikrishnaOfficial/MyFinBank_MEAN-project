@@ -1,0 +1,150 @@
+/* Apply styles to forms */
+form {
+    margin-bottom: 20px;
+  }
+  
+  /* Apply styles to form labels */
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  /* Apply styles to form inputs */
+  input[type="text"],
+  input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  /* Apply styles to buttons */
+  button {
+    padding: 10px 20px;
+    background-color: #0056b3; /* Your chosen color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Apply styles to lists */
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  /* Apply styles to list items */
+  li {
+    margin-bottom: 10px;
+  }
+  
+  /* Apply styles to headings */
+  h2 {
+    color: #0056b3; /* Your chosen color */
+  }
+  
+  /* Apply styles to the whole container */
+  div {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  
+
+  /* ------------------- */
+  .deposits-container {
+    margin: 5%;
+    text-align: centers;
+}
+
+.deposit-section {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.deposit-section h2 {
+    color: #0056b3;
+    margin-bottom: 10px;
+}
+
+.deposit-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.deposit-table th, .deposit-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.deposit-table th {
+    background-color: #5db1ff;
+}
+
+.deposit-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.deposit-table tbody tr:hover {
+    background-color: #f2f2f2;
+}
+
+.deposit-table button {
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.deposit-table button:hover {
+    background-color: #004080; /* Darker shade for hover effect */
+}
+
+.delete{
+    background-color: #cb0000 !important;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  z-index: 999; /* Ensure the overlay appears behind the form */
+}
+
+.update-deposit-form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Ensure the form appears above other elements */
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  background-color: #0053a6;
+  padding: 3px;
+  color:white;
+}

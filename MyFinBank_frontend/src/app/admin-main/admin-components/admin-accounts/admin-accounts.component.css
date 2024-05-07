@@ -1,0 +1,234 @@
+/* CSS for table formatting */
+.table {
+    width: 95%;
+    /* Set table width */
+    border-collapse: collapse;
+    /* Collapse border spacing */
+    margin: 20px auto;
+    /* Center the table horizontally */
+    margin-bottom: 90px;
+}
+
+.table th,
+.table td {
+    padding: 8px;
+    /* Add padding to table cells */
+    border: none;
+    /* Remove borders from table cells */
+    border-bottom: 1px solid #ddd;
+    /* Add bottom border to separate rows */
+    text-align: center;
+    /* Align text to the left */
+}
+
+.table th {
+    background-color: #5db1ff;
+    /* Background color for table header */
+    font-weight: bold;
+    /* Bold font for table header */
+}
+
+.table-hover tbody tr:hover {
+    background-color: #e0f0ff;
+    /* Hover background color */
+    cursor: pointer;
+}
+
+.edit-button {
+    padding: 5px 10px;
+    background-color: #003f82;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.edit-button:hover {
+    background-color: #007bff;
+}
+.delete-button {
+    padding: 5px 10px;
+    background-color: #e60000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+    background-color: #ea2323;
+}
+
+/* edit form *//* Popup edit account form */
+.edit-account-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    z-index: 1000;
+    border-radius: 5px;
+    padding-right: 35px;
+}
+
+.edit-account-popup-content {
+    max-width: 400px; /* Adjust the maximum width as needed */
+    margin: 0 auto;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.edit-account-popup h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 7px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+}
+
+button[type="submit"] {
+    display: block;
+    width: 90px;
+    padding: 7px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.close-btn{
+    background-color: #007bff;
+    padding: 4px;
+}
+.create-account{
+    display: block;
+    padding: 7px;
+    background-color: #0056b3;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.create-account:hover{
+    background-color: #2779d0;
+}
+
+.addacc{
+    display: flex;
+    justify-content: end;
+    margin-top: 2%;
+    margin-right: 10%;
+}
+
+/* CSS for create account popup */
+.create-account-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    z-index: 1000;
+    border-radius: 5px;
+    padding-right: 35px;
+}
+
+.create-account-popup-content {
+    max-width: 400px; /* Adjust the maximum width as needed */
+    margin: 0 auto;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    background-color: #007bff;
+    padding: 4px;
+}
+
+.create-account-popup h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 7px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+}
+
+button[type="submit"] {
+    display: block;
+    width: 90px;
+    padding: 7px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.create-account {
+    display: block;
+    padding: 7px;
+    background-color: #0056b3;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.create-account:hover {
+    background-color: #2779d0;
+}

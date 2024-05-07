@@ -1,0 +1,45 @@
+.form-container {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .emi-form {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  input[type="number"],
+  button {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+  }
+  
+  button {
+    background-color: #0056b3;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #00448d;
+  }
+  
+  h3 {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  

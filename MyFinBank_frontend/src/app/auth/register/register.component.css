@@ -1,0 +1,75 @@
+.container {
+    max-width: 350px;
+    margin: 4% auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+h2 {
+    color: #0056b3;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: calc(100% - 22px);
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #0056b3;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.error {
+    color: red;
+    font-size: smaller;
+    margin-top: 5px;
+}
+button:disabled {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #6684a4;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: not-allowed;
+}
+
+.navto{
+    color: #0056b3;
+    font-size: smaller;
+    margin: 0;
+    cursor: pointer;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 600px) {
+    .container {
+        max-width: 90%; /* Adjusted max-width for smaller screens */
+    }
+}
